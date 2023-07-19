@@ -1,0 +1,994 @@
+// -- Variables --
+
+// - Color -
+
+// light
+// https://www.happyhues.co/palettes/9
+
+$bgLight: #fffffe;
+$textLight: #2b2c34;
+$buttonLight: #6246ea;
+$highlightLight: #6246ea;
+$tertiaryLight: #de3333;
+$cardBgLight: #d1d1e9;
+$cardTagLight: #6246ea;
+
+// dark 
+// https://www.happyhues.co/palettes/13
+
+$bgDark: #28272c;
+$carouselBgDark: #1a163c;
+$headlineDark: #fffffe;
+$textDark: #a7a9be;
+$buttonDark: #ff8906;
+$highlightDark: #ff8906;
+$secondaryDark: #f25f4c;
+$tertiaryDark:#e53170;
+$cardBgDark: #fffffe;
+$cardTagDark: #ff8906;
+
+// - Font -
+@font-face {
+    font-family: SpaceGrotesk;
+    src: url('./fonts/SpaceGrotesk-VariableFont_wght.ttf');
+}
+
+
+$font:SpaceGrotesk;
+
+// Mixin
+
+@mixin hoverAnimation{
+    transition: 0.2s;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+
+// -- Général --
+
+*{
+    padding: 0;
+    margin: 0;
+    
+    resize: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: $font;
+}
+html{
+    scroll-behavior: smooth;
+}
+ul img{
+    
+    @include hoverAnimation
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+.supp-card{
+    transition: 0.4s;
+    position: absolute;
+    cursor: pointer;
+    top: 43%;
+    right: 10px;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+body{
+    min-width: 100vw;
+    overflow-x: hidden;
+    h1,h2,h3,h4,h5,h6{
+        font-weight: 600;
+        
+    }
+}
+.details{
+    a{
+        @media screen and (max-width: 350px) {
+            font-size: 0.8rem;
+        }
+    }
+    padding-bottom: 0px;
+    h2{
+        font-size: 1.3rem;
+        display: block;
+        width: 100%;margin: 20px 0;
+    }
+    .tags-container{
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+       
+        .contain-tags{
+            display:grid;
+            padding: 5px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        span{
+            padding: 5px 10px;
+            width: max-content;
+        }
+        transform: translateX(0);
+        width: 70%;
+        position: static;
+        margin: 10px auto;
+        
+    }
+}
+.profil{
+    width: 80%;
+    margin: 30px auto;
+    
+}
+.details-title{
+    h1{
+        
+        font-size: 1.4rem;
+        
+        margin: 10px 0 30px 0;
+        @media screen and (max-width: 400px) {
+            font-size: 0.9rem;
+        }
+        
+    }
+    width: 80%;
+    margin: 10px auto;
+    
+}
+.dark{
+    .notfound{
+        a{
+            color: white;
+        }
+    }
+}
+.notfound{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    h1{
+        font-size: 8rem;
+    }
+    h2{
+        padding: 10px 0;
+    }
+    a{
+        text-decoration: underline;
+    }
+}
+.details-title{
+    p{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        @media screen and (max-width: 400px) {
+            font-size: 0.7rem;
+        }
+    }
+}
+.dark{
+    .details-title{
+        p{
+            color: white;
+            
+        }
+    }
+    .radio-inputs .radio input:checked + .name{
+        color: #313131;
+    }
+    .radio-inputs .radio .name{
+        color: white;
+    }
+    .radio-inputs{
+        background: rgb(73, 73, 73);
+        
+    }
+    .button{
+        background-color:$tertiaryDark;
+    }
+    .card{
+        background: $cardBgLight;
+        a{
+            
+            border-bottom: 2.5px solid $tertiaryDark;
+            &:hover{
+                border-bottom: 2.5px solid $buttonDark;
+            }
+        }
+        *{
+            color: #000;
+        }
+        
+    }
+    .tags-techno{
+
+        background: $buttonDark;
+        color: $bgLight;
+    }
+    .tags-outils{
+        background: $tertiaryDark;
+        color: $bgLight;
+    }
+    .tags-metho{
+        background: $secondaryDark;
+        color: $bgLight;
+    }
+    background: $bgDark;
+    h1,h2,h3,h4,h5,h6{
+        
+        color: $headlineDark;
+    }
+    .cards-container{
+        color: $textDark;
+
+    }
+    .switch-label{
+        border: 3px solid #d8dbe0;
+    }
+    .carousel{
+       
+        .cover-img{
+            box-shadow: $buttonLight 0px 0px 0px 2px, $buttonLight 0px 4px 6px -1px, $buttonLight 0px 1px 0px inset;
+        }
+    }
+}
+.light{
+    .radio-inputs{
+        background: #eee;
+    }
+    .button{
+        background-color: $buttonLight;
+    }
+    .card{
+
+        a{
+            
+            border-bottom: 2.5px solid green;
+            &:hover{
+                border-bottom: 2.5px solid $tertiaryLight;
+            }
+        }
+    }
+    
+    .card__content{
+        background:rgb(241, 237, 237);
+    }
+    .tags-techno{
+
+        background: $buttonLight;
+        color: $bgLight;
+    }
+    .tags-outils{
+        background: $tertiaryLight;
+        color: $bgLight;
+    }
+    .tags-metho{
+        background: green;
+        color: $bgLight;
+    }
+    
+    .cards-container{
+        color:$textLight;
+        
+    }
+    .carousel{
+        background: $cardBgLight;
+        .cover-img{
+            box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+        }
+        
+    }
+    background: $bgLight;
+    h1,h2,h3,h4,h5,h6{
+        
+        color: $textLight;
+    }
+}
+
+
+// toggle button : 
+// licence : 
+
+.toggle-switch {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    --light: #d8dbe0;
+    --dark: #28292c;
+    --link: rgb(27, 129, 112);
+    --link-hover: rgb(24, 94, 82);
+  }
+  
+  .switch-label {
+    
+    user-select: none;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    color: transparent;
+    background-color: var(--dark);
+    border-radius: 25px;
+    cursor: pointer;
+    border: 3px solid var(--dark);
+    
+  }
+  
+  .checkbox {
+    position: absolute;
+    display: none;
+  }
+  
+  .slider {
+    color: transparent;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .checkbox:checked ~ .slider {
+    background-color: var(--light);
+    
+  }
+  
+  .slider::before {
+    
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    -webkit-box-shadow: inset 12px -4px 0px 0px var(--light);
+    box-shadow: inset 12px -4px 0px 0px var(--light);
+    background-color: var(--dark);
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .checkbox:checked ~ .slider::before {
+    
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
+    background-color: var(--dark);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  
+
+  // card animation
+//   license : 
+
+
+
+  .cardi {
+    position: relative;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  
+  
+  .cardi:hover {
+    transform: rotate(-5deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  .card__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    @media screen and (max-width: 470px) {
+        padding: 10px;
+    }
+    
+    p{
+        @media screen and (max-width: 470px) {
+            font-size: 0.5rem;
+        }
+    }
+    box-sizing: border-box;
+    background-color: #fff;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  .cardi:hover .card__content {
+    transform: translate(-50%, -50%) rotate(0deg);
+    opacity: 1;
+    
+  }
+  
+  .card__title {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+    
+        @media screen and (max-width: 470px) {
+            font-size: 0.8rem!important;
+        }
+    
+  }
+  .h1{
+    padding-bottom: 60px;
+  }
+  .card__description {
+    margin: 10px 0 0;
+    @media screen and (max-width: 470px) {
+        margin: 5px 0 0;
+    }
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+  }
+
+  // filter 
+
+  
+
+  .radio-inputs {
+    
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0.5rem;
+    
+    box-sizing: border-box;
+    box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+    padding: 0.25rem;
+    width: 600px;
+    @media screen and (max-width: 1000px) {
+        width: 400px;
+        font-size: 12px;
+    }
+    @media screen and (max-width: 750px) {
+        width: 300px;
+        font-size: 14px;
+    }
+    @media screen and (max-width: 600px) {
+        width: 450px;
+        font-size: 12px;
+    }
+    @media screen and (max-width: 500px) {
+        width: 400px;
+        font-size: 12px;
+    }
+    @media screen and (max-width: 450px) {
+        width: 300px;
+        font-size: 12px;
+    }
+    @media screen and (max-width: 340px) {
+        width: 250px;
+        font-size: 11px;
+    }
+    font-size: 14px;
+  }
+  
+  .radio-inputs .radio {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .radio-inputs .radio input {
+    display: none;
+  }
+  .button-details{
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    a{
+
+    }
+  }
+  .dark{
+    .button-details{
+        a{
+            transition: 0.3s;
+            &:hover{
+                transform: scale(1.1);
+                &::after{
+                    background: $buttonDark;
+                }
+            }
+            color: white;
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background: $tertiaryDark;
+                left: 0;
+                bottom: -5px;
+                border-radius: 10px;
+                transition: 0.3s;
+                
+                
+            }
+        }
+      }
+  }
+  .light{
+    .button-details{
+        a{
+            transition: 0.3s;
+            &:hover{
+                transform: scale(1.1);
+                &::after{
+                    background: $tertiaryLight;
+                }
+            }
+            position: relative;
+            &::after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                background: $buttonLight;
+                left: 0;
+                bottom: -5px;
+                border-radius: 10px;
+                transition: 0.3s;
+                
+                
+            }
+        }
+      }
+  }
+  .radio-inputs .radio .name {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    border: none;
+    max-width: 150px;
+    margin: 0 auto;
+    padding: .5rem .3rem;
+    color: rgba(51, 65, 85, 1);
+    transition: all .15s ease-in-out;
+  }
+  
+  .radio-inputs .radio input:checked + .name {
+    background-color: #fff;
+    font-weight: 600;
+  }
+
+  .licences{
+    h3{
+        font-size: 1.4rem;
+        padding: 10px 0;
+    }
+    p:not(.p){
+        width: 80%;
+        margin: 40px auto;
+        font-size: 0.8rem;
+    }
+    h2{
+        margin: 30px 0;
+        text-align: center;
+        a{
+            text-decoration: underline;
+        }
+    }
+  }
+  .light{
+    .form-container{
+        background: $cardBgLight;
+        border: 1px solid $textLight;
+    }
+    label{
+        color: $textLight;
+    }
+    form{
+        input,textarea{
+            background: rgba(0, 0, 0, 0.313);
+            border: 1px solid $textLight;
+            color: $textLight;
+        }
+        input[type='submit']{
+            background: $buttonLight;
+        }
+    }
+}
+.dark{
+    .form-container{
+        background: $textDark;
+        border: 1px solid $textLight;
+    }
+    form{
+        label{
+            color: $textLight;
+        }
+        input,textarea{
+            border: 1px solid $textLight;
+background: #00000051;
+color: white;
+        }
+        input[type='submit']{
+            background: $buttonLight!important;
+        }
+    }
+}
+.container-form{
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    padding: 40px 0;
+    .form-container{
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 8px, rgba(0, 0, 0, 0.6) 0px 14px 26px -6px, rgba(0, 0, 0, 0.2) 0px -6px 0px inset;
+        padding: 30px 5px;
+        @media screen and (max-width:662px) {
+            padding: 20px 0;
+           margin: 0 20px;
+        }
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        
+        form{
+            display: grid;
+            width: 70%;
+            @media screen and (max-width:662px) {
+                width:90%;
+            }
+            gap: 20px;
+            grid-template-areas: 
+            'name email'
+            'message message'
+            'submit submit';
+            @media screen and (max-width:662px) {
+                grid-template-areas: 
+            'name name'
+            'email email'
+            'message message'
+            'submit submit';
+            }
+            input,textarea{
+                border-radius: 5px;
+                
+                width: 100%;
+                outline: none;
+                padding: 7px;
+                margin-top: 10px;
+            }
+            textarea{
+                height: 150px;
+            }
+            
+            input[type='submit']{
+                box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+                border: none;
+                grid-area: submit;
+                padding: 10px 40px;
+                width: max-content;
+                margin: 10px auto;
+                color: white;
+            }
+            width: 80%;
+            max-width: 600px;
+            
+            .grid-name{
+                
+                grid-area: name;
+            }
+            .grid-email{
+                grid-area: email;
+            }
+            .grid-message{
+                display: flex;
+                flex-direction: column;
+                grid-area: message;
+            }
+            
+        }
+    }
+}
+.dark{
+    .contact-text{
+        color: white;
+    }
+}
+.contact-text{
+    padding: 40px 0 0 0;
+    position: relative;
+    
+    text-align: center;
+    width: 60%;
+    @media screen and (max-width:662px) {
+        width: 90%;
+    }
+    margin:  20px auto 5px auto;
+    p{
+        margin: 10px auto 80px auto;
+        font-size: 0.8rem;
+        padding-bottom: 30px;
+        width: 80%;
+        @media screen and (max-width:662px) {
+            width: 100%;
+        }
+        
+    }
+}
+.dark{
+
+    .form-message{
+        color: white;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        p{
+            margin: -60px 0 0 0;
+            
+        }
+    }
+}
+.light{
+
+    .form-message{
+        color: $textLight;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        p{
+            margin: -60px 0 0 0;
+        }
+        
+    }
+}
+.dark{
+    .no-admin, .admin{
+        background: $bgDark;
+    }
+}
+.light{
+    .no-admin, .admin{
+        background: $bgLight;
+    }
+}
+.close{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    cursor: pointer;
+    @media screen and (max-width:600px) {
+        top: 5px;
+        right: 5px;
+        width: 15px!important;
+    }
+}
+.no-admin, .admin{
+    
+    z-index: -20;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   
+   width: 60%;
+   
+   border-radius: 20px;
+}
+.no-admin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+   min-width: 125px;
+   max-width: 250px;
+    h3{
+        font-size: 0.9rem;
+        @media screen and (max-width:470px) {
+            font-size: 0.7rem;
+        }
+        @media screen and (max-width:360px) {
+            font-size: 0.5rem;
+        }
+    }
+}
+.bg-admin{
+    
+    position: fixed;
+    background: 
+    #0000005f;
+    top: 0;
+    left: 0;
+    z-index: -20;
+    height: 800vh;
+    width: 100vw;
+}
+.block{
+    overflow: hidden;
+}
+.bg-admin-open{
+    z-index: 2!important;
+    cursor: pointer;
+}
+.admin-open, .no-admin-open{
+    z-index: 4!important;
+    img{
+        cursor: pointer;
+    }
+}
+.admin{
+    input,textarea{
+        
+        width: 95%;
+    }
+    height: 90vh;
+   width: 90vw;
+   input{
+    @media screen and (max-width:600px) {
+        font-size: 0.8rem;
+    }
+    @media screen and (max-width:350px) {
+        font-size: 0.6rem;
+    }
+   }
+}
+.select-type{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}
+.dark{
+    .admin{
+        label{
+            color: white!important;
+        }
+    }
+}
+.container{
+    input{
+        display: none;
+        
+            
+            
+        
+    }
+    flex: 1 1 auto;
+    padding: 2px;
+    margin: 5px;
+    max-width: max-content;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    @media screen and (max-width: 1100px) {
+        font-size: 0.6rem;
+        margin: 2px;
+    }
+    @media screen and (max-width: 850px) {
+        font-size: 0.5rem;
+    }
+    @media screen and (max-width: 400px) {
+        font-size: 0.4rem;
+    }
+    
+}
+.flex-label{
+    
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+}
+.label-titre{
+    max-width: 600px;
+}
+summary{
+    
+    width: max-content;
+    user-select: none;
+    cursor: pointer;
+    margin: 0 auto;
+    h3{
+        @media screen and (max-width: 600px) {
+            font-size: 0.6rem!important;
+        }
+        @media screen and (max-width: 350px) {
+            font-size: 0.4rem!important;
+        }
+        display: flex;
+        align-items: center;
+        img{
+            margin-right: 10px;
+            transform: 0.5s;
+            @media screen and (max-width: 600px) {
+                width: 10px!important;
+            }
+        }
+    }
+}
+.grid-form-bottom{
+    display: flex;
+    flex-wrap: wrap;
+    label, input[type='submit']{
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    input[type='submit']{
+        max-width: 400px!important;
+        margin: 2px auto;
+    }
+    @media screen and (min-width: 820px) {
+        flex: none;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+}
+.container{
+    user-select: none;
+}
+.label-titre{
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dark{
+    .checked{
+
+        background:$tertiaryDark;
+    }
+}
+.checked{
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    background: $buttonLight;
+    color: white!important;
+}
+.turn{
+    animation: turn 0.3s ease forwards;
+}
+.return{
+    animation: return 0.3s ease forwards;
+}
+@keyframes turn {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform:rotate(-180deg);
+    }
+}
+@keyframes return {
+    0%{
+        transform: rotate(-180deg);
+    }
+    100%{
+        transform:rotate(-360deg);
+    }
+}

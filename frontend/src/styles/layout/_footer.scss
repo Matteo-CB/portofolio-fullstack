@@ -1,0 +1,68 @@
+footer{
+    padding: 20px;
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    gap: 30px;
+    .text-footer{
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        @media screen and (max-width:720px) {
+            font-size: 0.8rem;
+            
+        }
+        @media screen and (max-width:600px) {
+            padding-bottom: 30px;
+            font-size: 0.6rem;
+        }
+        a, .p{
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 5px 0;
+        }
+    }
+    ul{
+        
+        &::before{
+            content: '2023 - Matteo Chanté-Biyikli';
+            margin-right: 20px;
+            font-size: 0.8rem;
+            position: absolute;
+            top: 120%;
+            width: max-content;
+            transform: translateY(-50%);
+            right: 0;
+            @media screen and (max-width:720px) {
+                font-size: 0.6rem;
+            }
+            @media screen and (max-width:450px) {
+                
+                right: -8px;
+            }
+        }
+        position: absolute;
+        bottom: 5px;
+        right: 40px;
+        align-items: flex-end;
+        margin-bottom: 20px;
+        display: flex;
+        li{
+            margin: 0 10px;
+        }
+    }
+    
+    margin: 120px 0 0 0;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+.dark{
+    footer{
+        a, .p{
+            
+            color: white;
+        }
+        ul{
+            color: white;
+        }
+    }
+}
