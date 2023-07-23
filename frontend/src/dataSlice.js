@@ -15,9 +15,20 @@ async function fetchProjects() {
       return [Pro, Uni, howManyTimesUse];
     });
 }
+async function deleteProjects(id) {
+  return await fetch(`http://localhost:5000/api/stuff/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json())
+    .then((res) => console.log(res));
+}
 async function postFetch(post) {
-  await fetch("http://localhost:5000/api/stuff", {
+  console.log(JSON.stringify(post));
+  await fetch("http://localhost:5000/api/stuff/", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(post),
   });
 }
@@ -40,7 +51,7 @@ const dataSlice = createSlice({
       state.projects.push(action.payload);
     },
     deleteProject: (state, action) => {
-      state.projects.filter((e) => e._id !== action.payload);
+      deleteProjects(action.payload);
     },
     updateUniqueItems: (state) => {
       const allTechno = [];

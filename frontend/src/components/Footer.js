@@ -1,17 +1,13 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SocialMedia from "./SocialMedia";
 import { NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addProject } from "../dataSlice";
-import axios from "axios";
 
 const Footer = ({ data }) => {
   const dispatch = useDispatch();
-  const coverPath = document.querySelector(".cover-path");
-  const carouselPath = document.querySelector(".carousel-path");
-  const [checked, isChecked] = useState(false);
   const Alldata = useSelector((state) => state.data.uniqueItems.All);
-  const Projectdata = useSelector((state) => state.data.projects);
+  const adminRed = useSelector((state) => state.admin);
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -24,9 +20,6 @@ const Footer = ({ data }) => {
   }
   function handleToggleChange3() {
     setIsOpen3(!isOpen3);
-  }
-  function handleToggleChange() {
-    isChecked(!checked);
   }
 
   const checkedTechno = document.querySelectorAll(".te-check");
@@ -68,7 +61,11 @@ const Footer = ({ data }) => {
     });
   });
   const [admin, setAdmin] = useState("close");
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(adminRed);
+  useEffect(() => {
+    console.log(adminRed);
+    setIsAdmin(adminRed);
+  }, [adminRed]);
   const { id } = useParams();
   const theme = useSelector((state) => state.theme);
   let url1;
@@ -110,9 +107,6 @@ const Footer = ({ data }) => {
     }
   }
 
-  let arrayTechno = [];
-  let arrayMetho = [];
-  let arrayOutils = [];
   let initialUserData = {
     name: "",
     url: "",
@@ -144,7 +138,9 @@ const Footer = ({ data }) => {
   const formHandler = useCallback(
     () => (event) => {
       event.preventDefault();
-
+      let arrayTechno = [];
+      let arrayMetho = [];
+      let arrayOutils = [];
       const inputValidTechno = document.querySelectorAll(
         ".techno-labels.checked"
       );
@@ -163,16 +159,13 @@ const Footer = ({ data }) => {
       inputValidOutils.forEach((e) => {
         arrayOutils.push(e.textContent.substring(0, e.textContent.length - 1));
       });
-
-      
-
       userData.techno = arrayTechno;
       userData.methodologies = arrayMetho;
       userData.outils = arrayOutils;
-      
+
       dispatch(addProject(userData));
       setAdmin("close");
-  
+
       setUserData({
         name: "",
         url: "",
@@ -195,9 +188,11 @@ const Footer = ({ data }) => {
         <NavLink to={"/legales"}>Mentions légales</NavLink>
         <NavLink to={"/licences"}>Licences</NavLink>
         <NavLink to={"/"}>Accueil</NavLink>
+        <NavLink to={"/contact"}>Contactez-nous</NavLink>
       </div>
       <div className="text-footer t2">
-        <NavLink to={"/contact"}>Contactez-Nous</NavLink>
+        <NavLink to={"/signup"}>S'inscrire</NavLink>
+        <NavLink to={"/login"}>Se connecter</NavLink>
         <a href="https://google.com">Téléchargez mon CV</a>
         <p
           className="p"
@@ -211,6 +206,7 @@ const Footer = ({ data }) => {
           className={admin === "open" && isAdmin ? "admin admin-open" : "admin"}
         >
           <img
+            alt="close"
             width={20}
             onClick={() => {
               setAdmin("close");
@@ -236,6 +232,7 @@ const Footer = ({ data }) => {
                     <h3>
                       Techno
                       <img
+                        alt="arrow"
                         src={url1}
                         width={20}
                         className={isOpen1 ? "turn" : "return"}
@@ -268,6 +265,7 @@ const Footer = ({ data }) => {
                     <h3>
                       Outils
                       <img
+                        alt="arrow"
                         src={url1}
                         width={20}
                         className={isOpen2 ? "turn" : "return"}
@@ -300,6 +298,7 @@ const Footer = ({ data }) => {
                     <h3>
                       Methodologies
                       <img
+                        alt="arrow"
                         src={url1}
                         width={20}
                         className={isOpen3 ? "turn" : "return"}
@@ -386,6 +385,7 @@ const Footer = ({ data }) => {
           }
         >
           <img
+            alt="close"
             width={20}
             onClick={() => {
               setAdmin("close");

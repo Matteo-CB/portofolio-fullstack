@@ -1,8 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Thing = require("./models/Things");
 const app = express();
 app.use(express.json());
+const stuffRoutes = require("./routes/stuff");
+const userRouters = require("./routes/user");
 mongoose
   .connect(
     "mongodb+srv://matteochantebiyikli:Turkiye69@cluster0.uvznxij.mongodb.net/?retryWrites=true&w=majority",
@@ -23,43 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/stuff", (req, res, next) => {
-  console.log(req.body);
-  const thing = new Thing({
-    name: req.body.name,
-    url: req.body.url,
-    coverPublic: req.body.coverPublic,
-    code: req.body.code,
-    coverStyle: req.body.coverStyle,
-    techno: req.body.techno,
-    outils: req.body.outils,
-    methodologies: req.body.methodologies,
-    carousel: req.body.carousel,
-    description: req.body.description,
-  });
-  console.log(thing);
-  thing
-    .save()
-    .then(() => res.status(201).json({ message: "Objet enregistré !" }))
-    .catch((error) => res.status(400).json({ error }));
-});
-app.put("/api/stuff/:id", (req, res, next) => {
-  Thing.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-    .then(() => res.status(200).json({ message: "Objet modifié !" }))
-    .catch((error) => res.status(400).json({ error }));
-});
-app.delete("/api/stuff/:id", (req, res, next) => {
-  Thing.deleteOne({ _id: req.params.id })
-    .then(() => res.status(200).json({ message: "Objet supprimé !" }))
-    .catch((error) => res.status(400).json({ error }));
-});
-app.get("/api/stuff", (req, res, next) => {
-  Thing.find()
-    .then((things) => {
-      res.status(200).json(things);
-      console.log(things);
-    })
-    .catch((error) => res.status(400).json({ error }));
-});
-
+app.use("/api/stuff", stuffRoutes);
+app.use("/api/auth", userRouters);
 module.exports = app;

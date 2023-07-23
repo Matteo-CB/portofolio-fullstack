@@ -6,14 +6,14 @@ import { deleteProject } from "../dataSlice";
 const Card = ({ data }) => {
   const mediaQuery = window.matchMedia("(max-width: 470px)");
   const backgroundSize = mediaQuery.matches ? "contain" : "cover";
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const theme = useSelector((state) => state.theme);
   let url;
 
-  function DeleteCard(id){
-    dispatch(deleteProject(id))
+  function DeleteCard(id) {
+    dispatch(deleteProject(id));
   }
-
+  const admin = useSelector((state) => state.admin);
   if (theme === "dark") {
     url = "./images/dark/close-circle-svgrepo-com.svg";
   } else {
@@ -45,7 +45,15 @@ const Card = ({ data }) => {
           Voir le site
         </a>
         <NavLink to={"/details/" + data._id + "#header"}>Détails</NavLink>
-        <img width={20} className="supp-card" src={url} onClick={DeleteCard(data._id)} />
+        {admin && (
+          <img
+            alt="delete projects"
+            width={20}
+            className="supp-card"
+            src={url}
+            onClick={() => DeleteCard(data._id)}
+          />
+        )}
         <div className="tags-container">
           {data &&
             data.techno.length > 0 &&
