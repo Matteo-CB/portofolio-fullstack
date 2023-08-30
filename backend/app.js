@@ -14,7 +14,7 @@ mongoose
 
 app.use(
   cors({
-    origin: ["https://mcb-portfolio.vercel.app/"],
+    origin: ["https://mcb-portfolio.vercel.app"],
     methods: ["POST", "GET", "DELETE"],
     credentials: true,
   })
