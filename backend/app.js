@@ -12,13 +12,13 @@ mongoose
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
-// app.use(
-//   cors({
-//     origin: ["https://mcb-portfolio.vercel.app/"],
-//     methods: ["POST", "GET", "DELETE"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: ["https://mcb-portfolio.vercel.app/"],
+    methods: ["POST", "GET", "DELETE"],
+    credentials: true,
+  })
+);
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
