@@ -605,7 +605,7 @@ body{
     }
     form{
         input,textarea{
-            background: rgba(0, 0, 0, 0.313);
+            background: rgba(0, 0, 0, 0.569);
             border: 1px solid $textLight;
             color: $textLight;
         }
@@ -616,12 +616,11 @@ body{
 }
 .dark{
     .form-container{
-        background: $textDark;
-        border: 1px solid $textLight;
+        background: #3e3d42;
     }
     form{
         label{
-            color: $textLight;
+            color: #a7a9be;
         }
         input,textarea{
             border: 1px solid $textLight;
@@ -629,7 +628,7 @@ background: #00000051;
 color: white;
         }
         input[type='submit']{
-            background: $buttonLight!important;
+            background: $tertiaryDark!important;
         }
     }
 }
@@ -997,7 +996,8 @@ summary{
 .login-flex, .signup-flex{
 
     .form-container {
-        width: 320px;
+        width: 520px;
+        margin: 0 10px;
         border-radius: 0.75rem;
         background-color: #3e3d42;
         padding: 2rem;
@@ -1008,7 +1008,8 @@ summary{
     .login-flex, .signup-flex{
 
         .form-container {
-            width: 320px;
+            width: 520px;
+            margin: 0 10px;
             border-radius: 0.75rem;
             background-color: $cardBgLight;
             padding: 2rem;
@@ -1045,6 +1046,11 @@ summary{
     color: rgba(156, 163, 175, 1);
     margin-bottom: 4px;
   }
+  .light{
+    .input-group label{
+        color: #000;
+    }
+  }
   
   .input-group input {
     width: 100%;
@@ -1069,12 +1075,13 @@ summary{
 }
   
   .forgot {
+    text-align: center;
     display: flex;
     justify-content: flex-end;
     font-size: 0.75rem;
     line-height: 1rem;
     color: rgba(156, 163, 175,1);
-    margin: 8px 0 14px 0;
+    margin: 8px auto 14px auto;
   }
   
   .forgot a,.signup a {
@@ -1180,3 +1187,273 @@ summary{
     justify-content: center;
 
   }
+
+// button
+  .learn-more {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: 0.95rem;
+    font-family: inherit;
+   }
+   
+   .learn-more {
+    width: 15rem;
+    height: auto;
+   }
+   
+   .learn-more .circle {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: $bgDark;
+    border-radius: 1.625rem;
+   }
+   
+   .learn-more .circle .icon {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+   }
+   
+   .learn-more .circle .icon.arrow {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
+   }
+   
+   .learn-more .circle .icon.arrow::before {
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #fff;
+    border-right: 0.125rem solid #fff;
+    transform: rotate(45deg);
+   }
+   
+   .learn-more .button-text {
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: $bgDark;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+   }
+   
+   .learn-more:hover .circle {
+    width: 100%;
+   }
+   
+   .learn-more:hover .circle .icon.arrow {
+    background: #fff;
+    transform: translate(1rem, 0);
+   }
+   
+   .learn-more:hover .button-text {
+    color: #fff;
+   }
+   .dark{
+    .learn-more {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        vertical-align: middle;
+        text-decoration: none;
+        background: transparent;
+        padding: 0;
+        font-size: 0.95rem;
+        font-family: inherit;
+       }
+       
+       .learn-more {
+        width: 15rem;
+        height: auto;
+       }
+       
+       .learn-more .circle {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 3rem;
+        height: 3rem;
+        background: $bgLight;
+        border-radius: 1.625rem;
+       }
+       
+       .learn-more .circle .icon {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: $bgDark;
+       }
+       
+       .learn-more .circle .icon.arrow {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        left: 0.625rem;
+        width: 1.125rem;
+        height: 0.125rem;
+        background: none;
+       }
+       
+       .learn-more .circle .icon.arrow::before {
+        position: absolute;
+        content: "";
+        top: -0.29rem;
+        right: 0.0625rem;
+        width: 0.625rem;
+        height: 0.625rem;
+        border-top: 0.125rem solid $bgDark;
+        border-right: 0.125rem solid $bgDark;
+        transform: rotate(45deg);
+       }
+       
+       .learn-more .button-text {
+        transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.75rem 0;
+        margin: 0 0 0 1.85rem;
+        color: $bgLight;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-transform: uppercase;
+       }
+       
+       .learn-more:hover .circle {
+        width: 100%;
+       }
+       
+       .learn-more:hover .circle .icon.arrow {
+        background: $bgDark;
+        transform: translate(1rem, 0);
+       }
+       
+       .learn-more:hover .button-text {
+        color: $bgDark;
+       }
+   }
+
+   @media screen and (max-width: 700px) {
+    .dark, .light{
+        .learn-more {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            outline: none;
+            border: 0;
+            vertical-align: middle;
+            text-decoration: none;
+            background: transparent;
+            padding: 0;
+            font-size: 0.7rem;
+            font-family: inherit;
+           }
+           
+           .learn-more {
+            width: 10rem;
+            height: auto;
+           }
+           
+           .learn-more .circle {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: relative;
+            display: block;
+            margin: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 0.8125rem;
+           }
+           
+           .learn-more .circle .icon {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+           }
+           
+           .learn-more .circle .icon.arrow {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            left: 0.1rem;
+            width: 0.5625rem;
+            height: 0.0625rem;
+            background: none;
+           }
+           
+           .learn-more .circle .icon.arrow::before {
+            position: absolute;
+            content: "";
+            top: -0.14rem;
+            right: 0.01rem;
+            width: 0.3125rem;
+            height: 0.3125rem;
+            transform: rotate(45deg) translateY(-25%);
+           }
+           
+           .learn-more .button-text {
+            transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+            position: absolute;
+            top: -70%;
+            transform: translateY(25%);
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 0.75rem 0;
+            margin: 0 0 0 1.85rem;
+            font-weight: 700;
+            line-height: 1.6;
+            text-align: center;
+            text-transform: uppercase;
+           }
+           
+           .learn-more:hover .circle {
+            width: 100%;
+           }
+           
+           .learn-more:hover .circle .icon.arrow {
+            transform: translate(0.5rem, 0);
+           }
+           
+          
+    }
+    .light{
+        .learn-more:hover .circle .icon.arrow {
+            transform: translate(0.5rem, 0);
+            background: $bgLight;
+           }
+           
+    }
+   }

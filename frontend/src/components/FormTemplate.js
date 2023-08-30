@@ -50,17 +50,29 @@ const FormTemplate = () => {
         <div className="form-container">
           <form ref={form} onSubmit={sendEmail}>
             <div className="grid-name">
-              <label>Name</label>
-              <input type="text" name="name" required autoComplete="off" />
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autoComplete="off"
+              />
             </div>
             <div className="grid-email">
-              <label>Email</label>
-              <input type="email" name="email" required autoComplete="off" />
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autoComplete="off"
+              />
             </div>
             <div className="grid-message">
-              <label>Message</label>
+              <label htmlFor="message">Message</label>
 
-              <textarea name="message" required />
+              <textarea name="message" id="message" required />
             </div>
             <input type="submit" value="Envoyer" />
           </form>

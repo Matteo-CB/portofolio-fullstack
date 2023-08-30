@@ -152,6 +152,13 @@
         padding: 3px;
         margin: 5px;
         flex: 1 0 20%;
-        font-size: 0.5rem;
+        font-size: 0.45rem;
+        @media screen and (max-width:500px){
+            font-size: 0.35rem;
+        }
+        @media screen and (max-width:460px){
+            font-size: 0.30rem;
+        }
     }
+
 }

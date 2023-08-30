@@ -6,7 +6,6 @@ import Filter from "./Filter";
 const ProjectsContainer = () => {
   const data = useSelector((state) => state.data);
   const filter = useSelector((state) => state.filter);
-
   return (
     <>
       <div className="projets-title">

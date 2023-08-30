@@ -1,10 +1,12 @@
 import React, { useCallback, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Back from "../components/Back";
 import { NavLink } from "react-router-dom";
-
+import axios from "axios";
+import { toggleAdmin } from "../adminSlice";
+import { toggleName } from "../nameSlice";
 const Signup = () => {
   const theme = useSelector((state) => state.theme);
 
@@ -22,7 +24,7 @@ const Signup = () => {
     },
     [userData]
   );
-
+  const dispatch = useDispatch();
   const formHandler = useCallback(
     () => (event) => {
       event.preventDefault();
@@ -30,10 +32,18 @@ const Signup = () => {
         userData.admin = true;
       }
       console.log(userData);
-      userData.admin = false;
-      userData.name = "";
-      userData.email = "";
-      userData.password = "";
+
+      axios
+        .post("http://localhost:5000/api/auth/signup", userData)
+        .then((e) => {
+          console.log(e);
+          dispatch(toggleAdmin(userData.admin));
+          dispatch(toggleName(e.data.name));
+          userData.name = "";
+          userData.admin = false;
+          userData.email = "";
+          userData.password = "";
+        });
     },
     [userData]
   );
@@ -47,7 +57,7 @@ const Signup = () => {
           <p className="title">S'inscrire</p>
           <form className="form" onSubmit={formHandler()}>
             <div className="input-group">
-              <label for="name">Prénom</label>
+              <label htmlFor="name">Prénom</label>
               <input
                 type="text"
                 name="name"
@@ -58,7 +68,7 @@ const Signup = () => {
               />
             </div>
             <div className="input-group">
-              <label for="username">Email</label>
+              <label htmlFor="username">Email</label>
               <input
                 type="email"
                 name="username"
@@ -69,7 +79,7 @@ const Signup = () => {
               />
             </div>
             <div className="input-group">
-              <label for="password">Mot de passe</label>
+              <label htmlFor="password">Mot de passe</label>
               <input
                 type="password"
                 name="password"

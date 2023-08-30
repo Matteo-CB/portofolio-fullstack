@@ -63,7 +63,6 @@ const Footer = ({ data }) => {
   const [admin, setAdmin] = useState("close");
   const [isAdmin, setIsAdmin] = useState(adminRed);
   useEffect(() => {
-    console.log(adminRed);
     setIsAdmin(adminRed);
   }, [adminRed]);
   const { id } = useParams();
@@ -193,7 +192,9 @@ const Footer = ({ data }) => {
       <div className="text-footer t2">
         <NavLink to={"/signup"}>S'inscrire</NavLink>
         <NavLink to={"/login"}>Se connecter</NavLink>
-        <a href="https://google.com">Téléchargez mon CV</a>
+        <a href="./doc/Matteochante-biyikli.pdf" download={"cv-Matteo-cb.pdf"}>
+          Téléchargez mon CV
+        </a>
         <p
           className="p"
           onClick={() => {

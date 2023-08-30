@@ -34,7 +34,7 @@ async function postFetch(post) {
 }
 
 const Container = await fetchProjects();
-const Projects = Container[0];
+const Projects = Container[0].reverse();
 const uniqueItems = Container[1];
 export const use = Container[2];
 const dataSlice = createSlice({
