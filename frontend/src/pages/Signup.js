@@ -34,7 +34,7 @@ const Signup = () => {
       console.log(userData);
 
       axios
-        .post("http://localhost:5000/api/auth/signup", userData)
+        .post("https://mcb-portfolio-api.vercel.app/api/auth/signup", userData)
         .then((e) => {
           console.log(e);
           dispatch(toggleAdmin(userData.admin));

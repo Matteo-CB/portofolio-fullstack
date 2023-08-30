@@ -4,7 +4,7 @@ let Pro;
 let Uni;
 
 async function fetchProjects() {
-  return await fetch("http://localhost:5000/api/stuff")
+  return await fetch("https://mcb-portfolio-api.vercel.app/api/stuff")
     .then((data) => {
       return data.json();
     })
@@ -16,7 +16,7 @@ async function fetchProjects() {
     });
 }
 async function deleteProjects(id) {
-  return await fetch(`http://localhost:5000/api/stuff/${id}`, {
+  return await fetch(`https://mcb-portfolio-api.vercel.app/api/stuff/${id}`, {
     method: "DELETE",
   })
     .then((res) => res.json())
@@ -24,7 +24,7 @@ async function deleteProjects(id) {
 }
 async function postFetch(post) {
   console.log(JSON.stringify(post));
-  await fetch("http://localhost:5000/api/stuff/", {
+  await fetch("https://mcb-portfolio-api.vercel.app/api/stuff/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

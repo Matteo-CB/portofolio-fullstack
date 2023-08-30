@@ -32,7 +32,7 @@ const Login = () => {
         userData.admin = true;
       }
       console.log(userData);
-      axios.post("http://localhost:5000/api/auth/login", userData).then((e) => {
+      axios.post("https://mcb-portfolio-api.vercel.app/api/auth/login", userData).then((e) => {
         console.log(e);
         dispatch(toggleAdmin(userData.admin));
         dispatch(toggleName(e.data.name));
